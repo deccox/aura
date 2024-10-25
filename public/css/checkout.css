@@ -1,0 +1,225 @@
+main{
+   
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.main-checkout{
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+
+}
+
+
+
+/*  ENTREGA ==================================== */
+
+
+
+.main-checkout .entrega-info{
+    flex: 1.6;
+    font-family: 'Poppins';
+    
+}
+
+
+
+.main-checkout .desc{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: rgb(74, 74, 74);
+}
+
+.main-checkout .desc span:nth-of-type(1){
+    margin: 10px 0px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+}
+
+
+
+
+
+/*  ENTREGA ==================================== */
+
+
+/*  PAGAMENTO  ==================================== */
+
+.pagamento{
+    display: flex;
+    flex-direction: column;
+}
+
+.main-checkout .pagamento span:nth-of-type(1){
+    margin: 20px 0px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+}
+
+.main-checkout  .addpayment span:nth-of-type(1){
+    margin: 0px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+    
+}
+
+.addpayment{
+    border: 1px solid black;
+    box-shadow: rgba(0, 0, 0, .15) 0 3px 3px 0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.addpayment form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.addpayment form div{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.addpayment form div select:nth-of-type(1){
+    flex: 2;
+    padding: 10px;
+}
+
+
+
+.addpayment form div select:nth-of-type(2){
+    flex: 1;
+    padding: 10px;
+}
+
+
+ 
+.addpayment input,
+.addpayment form select{
+    width: 100%;
+    padding: 10px;
+    background-color: #efefef;
+    color: #9c9c9c;
+    border: 1px solid #efefef;
+    font-weight: bold;
+    font-family: 'Poppins';
+}
+
+
+/*  PAGAMENTO  ==================================== */
+
+
+
+/*  PEDIDO  ==================================== */
+
+
+
+.main-checkout .pedido-info{
+    flex: 1.2;
+    font-family: 'Poppins';
+}
+
+
+.pedido-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: rgb(74, 74, 74);
+
+}
+
+.pedido-desc span{
+    margin: 10px 0px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+    border-bottom: 1px solid gray;
+}
+
+
+.pedido-desc .product-item{
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.pedido-info .pedido-total{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.pedido-total-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+.pedido-total-item .pedido-left{
+    font-weight: 400;
+}
+
+
+.pedido-total-item .pedido-rigth{
+    font-weight: 500;
+    color: gray;
+}
+
+
+.pedido-total-item #tot{
+    font-weight: 800;
+    font-size: 1.2rem;
+   
+}
+
+
+.pedido-confirm{
+    width: 100%;
+    padding: 20px 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+/*  PEDIDO  ==================================== */
+
+
+
+/*  MEDIA SCREAN  ==================================== */
+
+    @media screen and (max-width: 800px) {
+        .main-checkout{
+            flex-direction: column;
+        
+        }
+        
+    }
+
+/*  MEDIA SCREAN  ==================================== */
+
+
+
+
+
