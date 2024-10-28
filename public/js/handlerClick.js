@@ -49,7 +49,11 @@ $(function() {
 
     $('.header-img').on('click', function(){
         if(window.location.pathname !== '/'){
-            window.location.href = '/'
+            window.location.reload()
+            window.location.href = '/';
+  
+
+
         }
     })
 
@@ -60,6 +64,8 @@ $(function() {
 
     $('.product-button div').on('click', function(e) {
         window.location.href = '/checkout';
+       
+
     });
 
 
@@ -193,7 +199,7 @@ $(function() {
             `);
     
             // Adiciona o novo produto ao array `prods`
-            prods[prod.id] = produto;
+            prods[prod.id - 1] = produto;
     
             // Vincula os eventos de "+" e "-" após adicionar o item
             attachEventHandlers(prod.id);
@@ -332,11 +338,58 @@ $(function() {
 
 
 
-   
 
 
 
-    
-                   
+
+
+
+
+
+
+
+
+
+
+    //checkout
+    (function initCheckout(){
+        let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+        console.log(produtos)
+
+        let tot = 0;
+        produtos.forEach((prod, i) => {
+            if (prod){
+                tot += prod.amount  
+                $('.product-items').append(`
+                    <div data-product="${prod.id}" class="product-item">
+                        <div class="product-delete">
+                            <i class="fa-solid fa-trash"></i>
+                        </div>
+                        <div class="product-item-img">
+                            <img src="${prod.img}" alt="">
+                        </div>
+                        <div class="product-item-desc">
+                            <div class="product-item-title">
+                                ${prod.nome}
+                            </div>
+                            <div class="product-item-price" data-price="${prod.price}">
+                                <div class="product-item-amount">
+                                    <div class="increase-btn">+</div>
+                                    <div class="quantity" value="1" data-quantity="${prod.quantity}">${prod.quantity}</div>
+                                    <div class="decrease-btn">-</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item-totalprice" data-amount="${prod.amount}">
+                                    R$ ${prod.amount},00
+                                </div>
+                    </div>
+                    `)
+            }
+        })
+
+
+        $('.pedido-total-item:nth-of-type(1) .pedido-rigth, .pedido-total-item:nth-of-type(3) .pedido-rigth').text(`R$ ${tot},00`)
+    }())                  
 
 })
