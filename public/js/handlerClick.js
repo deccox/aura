@@ -118,33 +118,33 @@ $(function() {
 
 
     if(window.location.pathname !== "/checkout"){
-        let mouseDown = false;
-        let startX, scrollLeft;
-        const slider = document.querySelector('.produtos');
-        
-        const startDragging = (e) => {
-        mouseDown = true;
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-        }
-        
-        const stopDragging = (e) => {
-        mouseDown = false;
-        }
-        
-        const move = (e) => {
-        e.preventDefault();
-        if(!mouseDown) { return; }
-        const x = e.pageX - slider.offsetLeft;
-        const scroll = x - startX;
-        slider.scrollLeft = scrollLeft - scroll;
-        }
-        
-        // Add the event listeners
-        slider.addEventListener('mousemove', move, false);
-        slider.addEventListener('mousedown', startDragging, false);
-        slider.addEventListener('mouseup', stopDragging, false);
-        slider.addEventListener('mouseleave', stopDragging, false);
+        // let mouseDown = false;
+        // let startX, scrollLeft;
+        // const slider = document.querySelector('.produtos');
+
+        // const startDragging = (e) => {
+        // mouseDown = true;
+        // startX = e.pageX - slider.offsetLeft;
+        // scrollLeft = slider.scrollLeft;
+        // }
+
+        // const stopDragging = (e) => {
+        // mouseDown = false;
+        // }
+
+        // const move = (e) => {
+        // e.preventDefault();
+        // if(!mouseDown) { return; }
+        // const x = e.pageX - slider.offsetLeft;
+        // const scroll = x - startX;
+        // slider.scrollLeft = scrollLeft - scroll;
+        // }
+
+        // // Add the event listeners
+        // slider.addEventListener('mousemove', move, false);
+        // slider.addEventListener('mousedown', startDragging, false);
+        // slider.addEventListener('mouseup', stopDragging, false);
+        // slider.addEventListener('mouseleave', stopDragging, false);
 
     
     }
@@ -152,6 +152,23 @@ $(function() {
 
     (function allConfig(){
         
+        (function(){
+            products.forEach((prod, i) => {
+                $('.produtos').append(`
+                    <div class="card">
+                        <a href="/produto/${prod.id}" class="card-img">
+                            <img src="${prod.img}" alt="">
+                        </a>
+                        <span class="card-name">${prod.nome}</span>
+                        <a href="/produto/${prod.id}" class="card-value">
+                            <span>R$ ${prod.price},00</span>
+                            <span>${prod.parcela}</span>
+                        </a>
+                        <div class="buy-btn" data-product="${prod.id}">Comprar</div>
+                    </div>  
+                `)
+            })
+        })();
 
             $('.buy-btn').on('click', (e) => {
                 let i = $(e.target).attr('data-product');
@@ -429,4 +446,12 @@ $(function() {
         }
     })();
 
+
+
+
+    
+
 })
+
+
+

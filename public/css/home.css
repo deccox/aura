@@ -475,7 +475,7 @@ body:has(.modal.modal-active) {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 10px 0px;
+    margin: 100px 0px;
 
 }
 
@@ -506,6 +506,15 @@ body:has(.modal.modal-active) {
     gap: 10px;
 }
 
+.header-produtos{
+    font-size: 2.2rem;
+    font-weight: bold;
+    font-family: 'Poppins';
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin: 50px 0px;
+}
 
 .produtos .card {
     display: flex;
@@ -541,6 +550,7 @@ body:has(.modal.modal-active) {
     text-align: center;
     display: flex;
     flex-direction: column;
+    color: black;
 }
 
 .produtos .card .card-value span:nth-of-type(2) {
@@ -569,6 +579,7 @@ body:has(.modal.modal-active) {
 
 
 
+/** ======== LOADER CONFIG ==============*/
 
 .loader {
     border: 8px solid #f3f3f3; /* Cor de fundo */
@@ -584,6 +595,78 @@ body:has(.modal.modal-active) {
     transform: translateY(-50%);
 
 }
+
+/** ======== LOADER CONFIG ==============*/
+
+
+
+
+
+
+/** FOOTER SOCIAL ABOUT =====================================*/
+
+.footer-social{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 50px;
+    align-items: center;
+    
+}
+
+.footer-line{
+    width: 100%;
+    background-color: black;
+    height: 2px;
+}
+
+.footer-social .social{
+    display: flex;
+    gap: 50px;
+    position: absolute;
+    background-color: white;
+    padding: 10px 20px;
+
+}
+
+.footer-social .social a i{
+    font-size: 2rem;
+}
+
+/** FOOTER SOCIAL ABOUT =====================================*/
+
+
+
+/** SERVICER SOCIAL ABOUT =====================================*/
+
+.service-banner{
+    display: flex;
+    gap: 20px;
+    color: black;
+    padding: 20px;
+}
+
+.item .item-content{
+    font-family: 'Poppins';
+    color: black;
+}
+/** SERVICER SOCIAL ABOUT =====================================*/
+
+
+
+
+
+
+
+
+
+/** ======== PRODUCT PAGE CONFIG ==============*/
+
+
+
+/** ======== PRODUCT PAGE CONFIG ==============*/
+
 
 @keyframes spin {
     0% { transform: rotate(0deg); }
@@ -601,7 +684,7 @@ body:has(.modal.modal-active) {
  
  
      .produtos{
-         
+         flex-direction: column;
          overflow-x: hidden; /* Permite rolagem horizontal */
          
      }
@@ -614,6 +697,11 @@ body:has(.modal.modal-active) {
         scroll-snap-align: start; /* Faz os cards se alinharem ao iniciar a rolagem */
         
         
+     }
+
+
+     .service-banner{
+        flex-direction: column;
      }
  
      

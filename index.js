@@ -14,6 +14,11 @@ app.get("/about", (req, res) => {
 });
 
 
+app.get("/produto/:id", (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'produto.html'));
+});
+
+
 app.get("/checkout", (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'checkout.html'))
 })

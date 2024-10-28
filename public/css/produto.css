@@ -1,0 +1,196 @@
+*,
+*::before,
+*::after{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box ;
+}
+
+main{
+    gap: 20px;
+}
+
+.produto-content{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+   
+}
+
+.produto-content  .prod-cont{
+    display: flex;
+    width: 1000px;
+    flex-direction: row;
+}
+
+.produto-imagem{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+
+.produto-infos{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+}
+
+
+.produto-infos .prod-title{
+    width: 100%;
+    font-size: 2rem;
+    font-family: 'Poppins';
+    font-weight: bold;
+}
+
+.produto-infos .prod-prices{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins';
+}
+
+.produto-infos .prod-prices span:nth-of-type(1){
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+.produto-infos .prod-prices span:nth-of-type(2){
+    font-size: 1.2rem;
+    font-weight: bold;
+
+}
+
+
+.produto-infos .prod-quantity{
+    display: flex;
+    gap: 10px;
+}
+
+
+.produto-infos .prod-quantity .prod-qtn{
+    display: flex;
+    
+}
+
+.produto-infos .prod-quantity .prod-qtn span{
+    border: 1px solid black;
+    padding: 5px 20px;
+    text-align: center;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+
+.comprar-btn{
+    padding: 5px 20px;
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Poppins';
+}
+
+
+
+
+
+/** PRODUTO ABOUT =====================================*/
+ .produto-about{
+    padding: 20px;
+ }
+
+ .produto-about-title{
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Poppins';
+ }
+
+
+.produto-about-list{
+    
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: 'Poppins';
+}
+    
+
+/** PRODUTO ABOUT =====================================*/
+
+
+
+/** FOOTER SOCIAL ABOUT =====================================*/
+
+.footer-social{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 50px;
+    align-items: center;
+    
+}
+
+.footer-line{
+    width: 100%;
+    background-color: black;
+    height: 2px;
+}
+
+.footer-social .social{
+    display: flex;
+    gap: 50px;
+    position: absolute;
+    background-color: white;
+    padding: 10px 20px;
+
+}
+
+.footer-social .social a i{
+    font-size: 2rem;
+}
+
+/** FOOTER SOCIAL ABOUT =====================================*/
+
+
+
+/** SERVICER SOCIAL ABOUT =====================================*/
+
+.service-banner{
+    display: flex;
+    gap: 20px;
+    color: black;
+    padding: 20px;
+}
+
+.item .item-content{
+    font-family: 'Poppins';
+    color: black;
+}
+/** SERVICER SOCIAL ABOUT =====================================*/
+
+
+
+
+
+
+/** MEDIA SCREAN ABOUT =====================================*/
+
+@media screen and (max-width: 800px) {
+    .produto-content .prod-cont{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+/** MEDIA SCREAN ABOUT =====================================*/
