@@ -566,6 +566,33 @@ body:has(.modal.modal-active) {
 
 
 
+
+
+
+
+.loader {
+    border: 8px solid #f3f3f3; /* Cor de fundo */
+    border-top: 8px solid #3498db; /* Cor da borda do círculo */
+    border-radius: 50%;
+    width: 50px; /* Largura do círculo */
+    height: 50px; /* Altura do círculo */
+    animation: spin 1s linear infinite; /* Animação de rotação */
+    position: fixed;
+    z-index: 25;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+
 /** ======== MEDIA SCREEN CONFIG ==============*/
 
 @media screen and (max-width: 900px) {

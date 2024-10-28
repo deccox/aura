@@ -47,51 +47,14 @@ $(function() {
 
 
 
-
-    $('.product-item-amount div:nth-of-type(1)').on('click', () => {
-        let prod = $('.product-item-amount div:nth-of-type(2)')
-
-        let val = (Number(prod.attr('value')) + 1 );
-
-        
-      
-        prod.attr('value', val);
-        prod.text(prod.attr('value'))
-
-
-        let itemPrice = $('.product-item-price').attr('value')
-
-        $('.product-item-totalprice').text(
-            ` R$ ${Number(itemPrice) * val},00`
-        )
-    })
-
-    $('.product-item-amount div:nth-of-type(3)').on('click', () => {
-        let prod = $('.product-item-amount div:nth-of-type(2)')
-
-        let val = (Number(prod.attr('value')) - 1 );
-
-        val = val > 0 ? val : 0;
-      
-        prod.attr('value', val);
-        prod.text(prod.attr('value'))
-
-
-        let itemPrice = $('.product-item-price').attr('value')
-
-        $('.product-item-totalprice').text(
-            ` R$ ${Number(itemPrice) * val},00`
-        )
-
-
+    $('.header-img').on('click', function(){
+        if(window.location.pathname !== '/'){
+            window.location.href = '/'
+        }
     })
 
 
 
-    $('.product-delete').on('click', function(e) {
-        
-        console.log(this.parentElement.remove())
-    });
 
 
 
@@ -165,20 +128,42 @@ $(function() {
 
     
 
-
-
     $('.buy-btn').on('click', (e) => {
         let i = $(e.target).attr('data-product');
         let prod = products[i - 1];
+        
+        let produto = {
+            id: prod.id,
+            nome: prod.nome,
+            img: prod.img,
+            price: prod.price,
+            quantity: 1,
+            amount: prod.price
+        };
+    
+        // Recupera os produtos existentes do localStorage ou inicializa um array vazio
+        let prods = JSON.parse(localStorage.getItem('produtos')) || [];
     
         if ($('.product-items [data-product="' + prod.id + '"]').length) {
             // Produto já existe, incrementa a quantidade
             let a = $('.product-items [data-product="' + prod.id + '"] .product-item-amount div:nth-of-type(2)');
+            let item = $('.product-items [data-product="' + prod.id + '"] .product-item-totalprice');
+            let val = Number(a.text());
             
-            let val = Number(a.text());  // Usa o texto atual
-            val = val + 1;  // Incrementa a quantidade
+            val += 1;  // Incrementa a quantidade
+            let priceItem = Number(prod.price);
             
-            a.text(val);  // Atualiza a quantidade
+            item.attr('data-amount', priceItem * val);
+            item.text(`R$ ${priceItem * val},00`);
+            
+            a.text(val);
+            a.attr('data-quantity', val);
+            
+            // Atualiza o objeto do produto
+            produto.quantity = val;
+            produto.amount = priceItem * val;
+    
+            
         } else {
             // Produto não existe, adiciona um novo
             $('.product-items').append(`
@@ -196,10 +181,10 @@ $(function() {
                         <div class="product-item-price" data-price="${prod.price}">
                             <div class="product-item-amount">
                                 <div class="increase-btn">+</div>
-                                <div class="quantity" data-quantity="1">1</div>
+                                <div class="quantity" value="1" data-quantity="1">1</div>
                                 <div class="decrease-btn">-</div>
                             </div>
-                            <div class="product-item-totalprice">
+                            <div class="product-item-totalprice" data-amount="${prod.price}">
                                 R$ ${prod.price},00
                             </div>
                         </div>
@@ -207,16 +192,23 @@ $(function() {
                 </div>
             `);
     
+            // Adiciona o novo produto ao array `prods`
+            prods[prod.id] = produto;
+    
             // Vincula os eventos de "+" e "-" após adicionar o item
             attachEventHandlers(prod.id);
         }
     
-        // Atualiza o total de itens no carrinho
+        // Salva o array `prods` atualizado no localStorage
+        localStorage.setItem('produtos', JSON.stringify(prods));
+        
+        updateConfiguration();
         updateTotalItems();
     });
     
     function attachEventHandlers(productId) {
         // Incrementar quantidade
+        let prod = products[productId - 1];
         $(`.product-items [data-product="${productId}"] .increase-btn`).on('click', function() {
             let quantityElem = $(this).siblings('.quantity');
             let currentQty = Number(quantityElem.attr('data-quantity'));
@@ -227,11 +219,14 @@ $(function() {
     
             // Atualiza o preço total e a quantidade de itens
             updateTotalPrice(productId, currentQty);
-            updateTotalItems();
+            updateTotalItems(prod);
         });
     
         // Decrementar quantidade
         $(`.product-items [data-product="${productId}"] .decrease-btn`).on('click', function() {
+
+
+            
             let quantityElem = $(this).siblings('.quantity');
             let currentQty = Number(quantityElem.attr('data-quantity'));
     
@@ -259,18 +254,85 @@ $(function() {
     }
     
     function updateTotalItems() {
+
+   
         let totalItems = 0;
+        let totalPrice = 0;
+        let totalQuantity = 0;
         
-        // Soma todas as quantidades dos produtos
+
+
+
+
         $('.product-item-amount .quantity').each(function() {
             totalItems += Number($(this).attr('data-quantity'));
+            
+
         });
-    
+
+
+        $('.product-items .product-item-price').each(function(){
+
+            let quantity = $(this).find('.quantity').attr('data-quantity')
+            let price = $(this).attr('data-price')
+
+            let tot = Number(price) * Number(quantity);
+
+            totalPrice += tot;
+            totalQuantity += quantity
+
+        })
+
+
+      
+
+        $('.product-totalprice span:nth-of-type(2)').text(`R$ ${totalPrice},00`)
+        $('.header-car-info span:nth-of-type(2)').text(`R$ ${totalPrice},00`)
+
         // Atualiza o valor no span.car-qtn
         $('.car-qtn').attr('value', totalItems);
         $('.car-qtn').text(totalItems);
+
+        
     }
-    
+
+
+
+
+    function updateConfiguration(){
+        $('.product-delete').on('click', function(e) {
+            // Mostra o loader
+            
+
+
+            loader();
+            
+            // Remove o item e atualiza os totais
+            this.parentElement.remove();
+            updateTotalItems();
+            
+           
+        });
+    }
+
+
+    const loader = () => {
+        $('body').append(`<div id="loader" class="loader"></div>`)
+        
+        
+        setTimeout(function() {
+            $('.loader').remove();
+        }, 1000);
+
+
+        
+    }
+
+
+
+
+
+   
 
 
 
