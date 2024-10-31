@@ -136,7 +136,7 @@ body:has(.modal.modal-active) {
 
 
 .car-products{
-    width: 280px;
+    width: 300px;
     height: 100%;
     background-color: white;
     position: absolute;
@@ -200,6 +200,7 @@ body:has(.modal.modal-active) {
     width: 100%;
     margin: 10px 0px;
     font-family: 'Poppins';
+    gap: 10px;
 }
 
 .product-items .product-item .product-delete{
@@ -220,6 +221,7 @@ body:has(.modal.modal-active) {
 }
 .product-item .product-item-img img{
     width: 100%;
+    border-radius: 4px;
 }
 
 .product-item .product-item-desc{
