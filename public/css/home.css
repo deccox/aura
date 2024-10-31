@@ -355,11 +355,14 @@ body:has(.modal.modal-active) {
 
 .carousel-item {
     min-width: 100%;
+    max-height: 500px;
 }
 
 .carousel-item img {
-    width: 100%;
-    display: block;
+    width: 100vw;
+    height: 500px;  /* Preenche a altura do contêiner */
+    object-fit: cover;     /* Faz o "clipping" para que a imagem ocupe todo o espaço */
+    object-position: center; /* Centraliza a imagem */
 }
 
 .carousel-prev,
