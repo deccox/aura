@@ -24,36 +24,29 @@ $(function() {
     const products = [
         {
             "id": 1,
-            "nome": "Serum Teste",
-            "img": "/assets/prod1.png",
+            "nome": "Vital Silt",
+            "img": "/assets/silt1.png",
             "price": 200,
             "parcela" : "6x R$20,00",
 
         },
         {
             "id": 2,
-            "nome": "Serum Teste",
-            "img": "/assets/prod1.png",
+            "nome": "Silt Essence",
+            "img": "/assets/silt2.png",
             "price": 200,
             "parcela" : "6x R$20,00",
 
         },
         {
             "id": 3,
-            "nome": "Serum Teste",
-            "img": "/assets/prod1.png",
-            "price": 200,
-            "parcela" : "6x R$20,00",
-
-        },
-        {
-            "id": 4,
-            "nome": "Serum Teste",
-            "img": "/assets/prod1.png",
+            "nome": "Nutri Silt",
+            "img": "/assets/silt3.png",
             "price": 200,
             "parcela" : "6x R$20,00",
 
         }
+    
     ]
     
     $('.header-car, .modal-overlay').on('click', function(e){

@@ -502,8 +502,8 @@ body:has(.modal.modal-active) {
     /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
     display: flex;
-    /* flex-wrap: wrap; */
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .header-produtos{
@@ -534,6 +534,7 @@ body:has(.modal.modal-active) {
 
 .produtos .card-img img{
     width: 100%;
+    border-radius: 10%;
     
 }
 
@@ -683,18 +684,17 @@ body:has(.modal.modal-active) {
    
  
  
-     .produtos{
+     /* .produtos{
          flex-direction: column;
          overflow-x: hidden; /* Permite rolagem horizontal */
          
-     }
      
+      */
     
  
      .produtos .card {
-        border: 1px solid rgba(187, 187, 187, 0.704);
+        
         min-width: 300px;
-        scroll-snap-align: start; /* Faz os cards se alinharem ao iniciar a rolagem */
         
         
      }
