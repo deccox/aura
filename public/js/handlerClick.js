@@ -24,26 +24,26 @@ $(function() {
     const products = [
         {
             "id": 1,
-            "nome": "Vital Silt",
+            "nome": "Silt Essence",
             "img": "/assets/silt1.png",
-            "price": 200,
-            "parcela" : "10x R$20,00",
+            "price": 159,
+            "parcela" : "10x R$15,90",
 
         },
         {
             "id": 2,
-            "nome": "Silt Essence",
+            "nome": "Vital Silt",
             "img": "/assets/silt2.png",
-            "price": 159,
-            "parcela" : "10x R$15,90",
+            "price": 100,
+            "parcela" : "10x R$10,00",
 
         },
         {
             "id": 3,
             "nome": "Nutri Silt",
             "img": "/assets/silt3.png",
-            "price": 200,
-            "parcela" : "10x R$20,00",
+            "price": 120,
+            "parcela" : "10x R$12,00",
 
         }
     
