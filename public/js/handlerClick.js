@@ -164,6 +164,7 @@ $(function() {
         })();
 
             $('.buy-btn').on('click', (e) => {
+                loader();
                 let i = $(e.target).attr('data-product');
                 let prod = products[i - 1];
                 
@@ -198,7 +199,7 @@ $(function() {
                     produto.quantity = val;
                     produto.amount = priceItem * val;
             
-                    
+                    updateConfiguration()
                 } else {
                     // Produto não existe, adiciona um novo
                     $('.product-items').append(`
@@ -232,6 +233,7 @@ $(function() {
             
                     // Vincula os eventos de "+" e "-" após adicionar o item
                     attachEventHandlers(prod.id);
+                    updateConfiguration();
                 }
             
                 // Salva o array `prods` atualizado no localStorage
@@ -345,10 +347,23 @@ $(function() {
         
             function updateConfiguration(){
                 $('.product-delete').on('click', function(e) {
-                    // Mostra o loader
+
+                    let produtos = JSON.parse(localStorage.getItem('produtos'))
+                    let id = $(this.parentElement).attr('data-product')
+
+                    console.log("prod id " + id);
+                    produtos = produtos.map((prod) => {
+                        if (prod == null) {
+                            return null; // Mantém os elementos `null`
+                        }
+                        if (prod.id == id) {
+                            return null; // Define o item como `null` para simular a exclusão, sem alterar a estrutura
+                        }
+                        return prod; // Mantém os produtos não afetados
+                    });
                     
-        
-        
+                    
+                    localStorage.setItem('produtos', JSON.stringify(produtos))
                     loader();
                     
                     // Remove o item e atualiza os totais
@@ -371,26 +386,11 @@ $(function() {
         
                 
             }
-        
-    }())
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //checkout
+            //checkout
     function initCheckout(){
         let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
         console.log(produtos)
@@ -429,6 +429,7 @@ $(function() {
 
 
         $('.pedido-total-item:nth-of-type(1) .pedido-rigth, .pedido-total-item:nth-of-type(3) .pedido-rigth').text(`R$ ${tot},00`)
+        updateConfiguration()
     };   
     
     
@@ -438,6 +439,31 @@ $(function() {
             initCheckout()
         }
     })();
+
+
+
+
+            
+        
+    }())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
 
