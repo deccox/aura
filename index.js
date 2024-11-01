@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-    res.json({"a": "hello"});
+    res.sendFile(path.join(__dirname, 'public', 'about.html'));
 });
 
 

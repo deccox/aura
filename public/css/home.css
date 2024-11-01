@@ -34,6 +34,7 @@ header{
 
 header img{
     width: 60%;
+    cursor: pointer;
 }
 
 
@@ -62,6 +63,34 @@ header .header-car .header-car-info span:nth-of-type(1){
 header .header-car .header-car-info span:nth-of-type(2){
     font-size: 0.7rem;
     font-weight: bold;
+}
+
+
+header .header-about{
+    font-size: 1rem;
+    font-family: 'Poppins';
+    font-weight: 800;
+    /* position: absolute;
+    top: 50%;
+    left: 170px;
+    transform: translateY(-50%); */
+}
+
+
+
+
+.about-home{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.about-home span{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    font-weight: 800;
 }
 /*  HEADER CAR ==================================== */
 
@@ -305,6 +334,7 @@ body:has(.modal.modal-active) {
     display: flex;
     justify-content: end;
     width: 100%;
+    cursor: pointer;
 }
 
 .product-button div{

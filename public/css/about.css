@@ -1,0 +1,55 @@
+.about{
+    padding: 20px;
+}
+
+
+.about-infos{
+    margin: 50px 0px;
+    font-family: 'Poppins';
+}
+
+.about-infos span{
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+}
+
+.about-participantes{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'Poppins';
+}
+
+
+.about-each-part{
+    display: flex;
+    gap: 10px;
+}
+
+
+
+.about-part-left{
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.about-part-left img{
+    height: 100%;
+}
+
+
+.about-part-right{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+}
+
+
+.about-part-right span:nth-of-type(1){
+    font-size: 1.1rem;
+    font-weight: bold;
+}
