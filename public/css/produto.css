@@ -30,6 +30,10 @@ main{
     flex: 1;
     display: flex;
     justify-content: center;
+    border: 1px solid #efefef;
+    padding: 20px;
+    border-radius: 10px;
+    flex-direction: column;
 }
 
 .produto-imagem img{
@@ -44,6 +48,9 @@ main{
     display: flex;
     flex-direction: column;
     gap: 30px;
+    border: 1px solid #efefef;
+    padding: 20px;
+    border-radius: 10px;
 
 }
 
@@ -77,6 +84,7 @@ main{
 .produto-infos .prod-quantity{
     display: flex;
     gap: 10px;
+    flex-direction: column;
 }
 
 
@@ -110,21 +118,84 @@ main{
     font-size: 1.5rem;
     font-family: 'Poppins';
     cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+    font-weight: 600;
 }
 
 
 
 
 
+/** CALCULAR FRETE ABOUT =====================================*/
+
+.calcular-frete{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.calcular-frete > p:nth-of-type(1){
+    font-size: 1rem;
+    font-family: 'Poppins';
+    font-weight: 600;
+
+}
+
+
+.calcular-frete > p:nth-of-type(2){
+    font-size: 0.9rem;
+    font-family: 'Poppins';
+    font-weight: 400;
+
+}
+
+.buybox-shipping-form-group{
+    display: flex;
+    gap: 10px;
+}
+
+.buybox-shipping-input-container{
+    flex: 1;
+}
+
+.buybox-shipping-input-container input{
+    width: 100%;
+    padding: 5px;
+    font-size: 1rem;
+    font-family: 'Poppins';
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.buybox-shipping-form-group button{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+
+/** CALCULAR FRETE ABOUT =====================================*/
+
+
+
+
 /** PRODUTO ABOUT =====================================*/
- .produto-about{
-    padding: 20px;
- }
+ /* .produto-about{
+    
+ } */
 
  .produto-about-title{
     font-size: 2rem;
     font-weight: bold;
     font-family: 'Poppins';
+    padding: 30px;
+    color: white;
+    background:linear-gradient(120deg, rgb(16 161 50) 14%, rgb(29 160 197) 100%);
  }
 
 
@@ -133,6 +204,7 @@ main{
     font-size: 1.2rem;
     font-weight: 400;
     font-family: 'Poppins';
+    padding: 20px;
 }
     
 .produto-about-comp{
@@ -145,6 +217,7 @@ main{
     flex-direction: column;
     align-items: center;
     gap: 4px;
+    font-family: 'Poppins';
 }
 .produto-about-comp .prod-about-comp img{
     height: 100px;
@@ -156,12 +229,17 @@ main{
     display: flex;
     flex-direction: column;
     margin-top: 30px;
+    padding: 20px;
+
 }
 
 .produto-subtitle{
     font-size: 1.2rem;
     font-family: 'Poppins';
     font-weight: 700;
+    width: 100%;
+    border-bottom: 1px solid rgb(184, 183, 183);
+    display: block;
 }
 
 .produto-subtitle-text{
@@ -169,6 +247,8 @@ main{
     font-size: 1rem;
     font-weight: 400;
     margin: 5px 0px;
+
+    
 }
 
 

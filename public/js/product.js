@@ -9,7 +9,7 @@ $(function (){
             "nome": "Vital Silt",
             "img": "/assets/silt1.png",
             "price": 200,
-            "parcela" : "6x R$20,00",
+            "parcela" : "10x R$20,00",
 
         },
         {
@@ -17,7 +17,7 @@ $(function (){
             "nome": "Silt Essence",
             "img": "/assets/silt2.png",
             "price": 200,
-            "parcela" : "6x R$20,00",
+            "parcela" : "10x R$20,00",
 
         },
         {
@@ -25,7 +25,7 @@ $(function (){
             "nome": "Nutri Silt",
             "img": "/assets/silt3.png",
             "price": 200,
-            "parcela" : "6x R$20,00",
+            "parcela" : "10x R$20,00",
 
         },
        
@@ -35,32 +35,10 @@ $(function (){
     // Exemplo de função anônima auto-invocada
     (function () {
         const prod = products[id - 1]
-        $('.produto-content').append(`
-            <div class="prod-cont">
-                <div class="produto-imagem">
-                    <img src="${prod.img}" alt="">
-                </div>
-                <div class="produto-infos">
-                    <span class="prod-title" >${prod.nome}</span>
-                    <div class="prod-prices" >
-                        <span>R$${prod.price},00</span>
-                        <span>${prod.parcela}</span>
-                    </div>
-                    <div class="prod-quantity">
-                        <div class="prod-qtn" data-quantity="1">
-                            <span class="decrease-btn">-</span>
-                            <span class="prod-tot">1</span>
-                            <span class="increase-btn">+</span>
-                        </div>
-                        <div class="comprar-btn">
-                            Comprar
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `)
-
-
+        $('.produto-imagem > img').attr('src', prod.img)
+        $('.produto-infos .prod-title').text(prod.nome)
+        $('.produto-infos  .prod-prices span:nth-of-type(1)').text(`R$${prod.price},00`)
+        $('.produto-infos  .prod-prices span:nth-of-type(2)').text(`${prod.parcela}`)
         attachEventHandlers();
     })();
 

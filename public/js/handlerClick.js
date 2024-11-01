@@ -27,7 +27,7 @@ $(function() {
             "nome": "Vital Silt",
             "img": "/assets/silt1.png",
             "price": 200,
-            "parcela" : "6x R$20,00",
+            "parcela" : "10x R$20,00",
 
         },
         {
@@ -35,7 +35,7 @@ $(function() {
             "nome": "Silt Essence",
             "img": "/assets/silt2.png",
             "price": 200,
-            "parcela" : "6x R$20,00",
+            "parcela" : "10x R$20,00",
 
         },
         {
@@ -43,7 +43,7 @@ $(function() {
             "nome": "Nutri Silt",
             "img": "/assets/silt3.png",
             "price": 200,
-            "parcela" : "6x R$20,00",
+            "parcela" : "10x R$20,00",
 
         }
     
