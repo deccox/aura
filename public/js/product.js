@@ -16,8 +16,8 @@ $(function (){
             "id": 2,
             "nome": "Silt Essence",
             "img": "/assets/silt2.png",
-            "price": 200,
-            "parcela" : "10x R$20,00",
+            "price": 159,
+            "parcela" : "10x R$15,90",
 
         },
         {
